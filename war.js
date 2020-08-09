@@ -48,48 +48,119 @@ class Deal {
 
 decks = new Deal()
 
-// console.log(decks.playerTwo)
+ //console.log(decks.playerTwo)
 // console.log(decks.playerOne)
 // console.log(decks.playerOne[0][0][0]) this is how you get the rank for comparison
 
 
+//console.log(decks.playerOne.length)
+//console.log(decks.playerTwo[0][0])
+
+
+
+compare = () => {
+    while (decks.playerOne.length !== 0 || decks.playerTwo !== 0) {
+        if (decks.playerOne[0][0][0] > decks.playerTwo[0][0][0]) {
+            decks.playerOne.push(decks.playerOne[0],decks.playerTwo[0])
+            decks.playerOne.shift()
+            decks.playerTwo.shift()
+        }
+        else if (decks.playerOne[0][0][0] > decks.playerTwo[0][0][0]) {
+            decks.playerTwo.push(decks.playerOne[0],decks.playerTwo[0])
+            decks.playerOne.shift()
+            decks.playerTwo.shift()
+        }
+        else {
+            console.log("war")
+            
+          war = (i = 2) => {  
+            if (decks.playerOne[i][0][0] > decks.playerTwo[i][0][0]) {
+                for (let j=0;j<=i;j++) {
+                decks.playerOne.push(decks.playerOne[j],decks.playerTwo[j])
+                decks.playerOne.shift()
+                decks.playerTwo.shift()
+                }
+            }
+            else if (decks.playerOne[i][0][0] > decks.playerTwo[i][0][0]) {
+                for (j=0;j<=i;j++) {
+                decks.playerTwo.push(decks.playerOne[j],decks.playerTwo[j])
+                decks.playerOne.shift()
+                decks.playerTwo.shift()
+                }
+                    
+            }
+            else {
+            war(i+=2)
+            }
+        
+        }     
+         war()   
+        }
+        console.log(`player 1: ${decks.playerOne.length} player 2: ${decks.playerTwo.length}`)
+    }
+}
+
+
+
+compare()
 
 
 
 
-    compare = () => {
 
-        while (decks.playerOne !== 0 && decks.playerTwo !== 0) {
+
+
+
+
+
+
+
+/*    compare = (i=0) => {
+
+        while (decks.playerOne.length !== 0 && decks.playerTwo.length !== 0) {
             if (decks.playerOne[0][0][0] > decks.playerTwo[0][0][0]) {
 
-                decks.playerOne.push(decks.playerOne[0][0][0])
-                decks.playerOne.push(decks.playerTwo[0][0][0])
-                decks.playerOne.shift(decks.playerOne[0][0][0])
-                decks.playerTwo.shift(decks.playerTwo[0][0][0])
+                console.log("player 1 wins this round")
+
+                decks.playerOne.push(decks.playerOne[0][0],decks.playerTwo[0][0])
+                decks.playerOne.shift()
+                decks.playerTwo.shift()
                 
 
 
             }
             else if (decks.playerOne[0][0][0] < decks.playerTwo[0][0][0]) {
 
-                decks.playerTwo.push(decks.playerOne[0][0][0])
-                decks.playerTwo.push(decks.playerTwo[0][0][0])
-                decks.playerOne.shift(decks.playerOne[0][0][0])
-                decks.playerTwo.shift(decks.playerTwo[0][0][0])
+                console.log("player 2 wins this round")
+
+                decks.playerTwo.push(decks.playerOne[0][0],decks.playerTwo[0][0])
+                decks.playerOne.shift()
+                decks.playerTwo.shift()
 
             }
-            else {
-
+             else if (decks.playerOne[0][0][0] === decks.playerTwo[0][0][0]) {
+                console.log("tie")
                 war = () => {
+                    let warWinnings = []
+                    while (decks.playerOne[0][0][0] === decks.playerTwo[0][0][0]) {
+                        
+                        return compare() 
                     
+                        
+                    
+                    }
                 }
+
+                war() 
             
         }
 
-        return `player 1: ${decks.playerOne.length} player 2: ${decks.playerTwo.length}`
+       console.log(`player 1: ${decks.playerOne.length} player 2: ${decks.playerTwo.length}`)
 
     }
         
-    }
+    
 
 
+
+compare() */
