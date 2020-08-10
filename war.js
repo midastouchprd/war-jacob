@@ -53,7 +53,7 @@ decks = new Deal()
 compare = () => {
     while (decks.playerOne.length !== 0 && decks.playerTwo !== 0) {
         if (decks.playerOne[0][0][0] > decks.playerTwo[0][0][0]) {
-            decks.playerOne.push(decks.playerOne[0],decks.playerTwo[0])
+            decks.playerOne.push(decks.playerTwo[0],decks.playerOne[0],)
             decks.playerOne.shift()
             decks.playerTwo.shift()
         }
@@ -64,11 +64,11 @@ compare = () => {
         }
         else {
             
-            if (decks.playerOne.length*3 < decks.playerTwo.length*2 && decks.playerOne.length < 20) {
+            if (decks.playerOne.length*3 < decks.playerTwo.length && decks.playerOne.length < 10) {
                 console.log("Player 2 wins")
                 break
             }
-            else if (decks.playerTwo.length*3 < decks.playerOne.length*2 && decks.playerTwo.length < 20) {
+            else if (decks.playerTwo.length*3 < decks.playerOne.length && decks.playerTwo.length < 10) {
                 console.log("Player 1 wins")
                 break
             }
@@ -83,7 +83,7 @@ compare = () => {
                 decks.playerTwo.shift()
                 }
             }
-            else if (decks.playerOne[i][0][0] > decks.playerTwo[i][0][0]) {
+            else if (decks.playerOne[i][0][0] < decks.playerTwo[i][0][0]) {
                 for (j=0;j<=i;j++) {
                 decks.playerTwo.push(decks.playerOne[j],decks.playerTwo[j])
                 decks.playerOne.shift()
@@ -103,7 +103,4 @@ compare = () => {
     }
 }
 
-
-
 compare()
-
