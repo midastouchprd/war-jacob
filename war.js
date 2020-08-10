@@ -1,3 +1,4 @@
+
 class Deck {
     constructor() {
         this.deck = []
@@ -49,11 +50,10 @@ class Deal {
 decks = new Deal()
 
 
-
 compare = () => {
     while (decks.playerOne.length !== 0 && decks.playerTwo !== 0) {
         if (decks.playerOne[0][0][0] > decks.playerTwo[0][0][0]) {
-            decks.playerOne.push(decks.playerTwo[0],decks.playerOne[0],)
+            decks.playerOne.push(decks.playerTwo[0],decks.playerOne[0])
             decks.playerOne.shift()
             decks.playerTwo.shift()
         }
@@ -102,5 +102,7 @@ compare = () => {
         console.log(`player 1: ${decks.playerOne.length} player 2: ${decks.playerTwo.length}`)
     }
 }
+
+
 
 compare()
